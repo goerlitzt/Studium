@@ -1,10 +1,5 @@
 #ifndef MINDMASTER_H
-#define MINDMASTER_
-
-
-#ifndef MINDMASTER_H
-#define MINDMASTER_
-
+#define MINDMASTER_H
 
 using namespace std;
 
@@ -20,14 +15,10 @@ public:
 //    virtual ~Mindmaster();
   
 T isValidInput(const vector<T>& guess, int length, T min, T max);
-
 T white(const vector<T>& solution, const vector<T>& guess);
-
 T black(const vector<T>& solution, const vector<T>& guess);
 
 private:
-    T t1;
-
 };
 
 template<typename T>
@@ -94,6 +85,4 @@ if (guess.size() == length) //Überprüfen ob guess die richtige Anzahl an Zahle
 template<typename T>
 Mindmaster<T>::Mindmaster(){
         };
-    
 #endif /* MINDMASTER_H */
-
