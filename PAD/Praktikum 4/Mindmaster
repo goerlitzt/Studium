@@ -37,7 +37,22 @@ bool isValidInput(const vector<T>& guess, int length, T min, T max)
 template <typename T>
 int white(const vector<T>& solution, const vector<T>& guess)
 {
+    int zaehler = 0; //Zählt wieviele Zahlen sowohl in guess als auch in solution vorkommen, ABER an VERSCHIEDENER Stelle sind
 
+    for (int erste = 0; erste < solution.size(); erste++)
+    {
+        for (int zweite = 0; zweite < solution.size(); zweite++)
+        {
+            if (erste != zweite)
+            {
+                if (guess[erste] == solution[zweite])
+                {
+                    zaehler++;
+                }
+            }
+        }
+    }
+    return zaehler;
 }
 //Funktion black soll die Anzahl an gleichen Zahlen an der GLEICHEN Stelle zurückgeben
 
@@ -88,7 +103,7 @@ int main(int argc, char** argv)
 
     cout << "True/False: " << isValidInput(guess, len, min, max) << endl;
     cout << "Anzahl an schwarzen Zahlen: " << black(solution, guess) << endl;
-    cout << "Anzahl an weißen Zahlen: "<<endl;
+    cout << "Anzahl an weißen Zahlen: " << white(solution, guess) << endl;
 
     return 0;
 }
