@@ -7,9 +7,7 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
-
-    Mindmaster<int> obj;
-
+    Mindmaster<int> mind;
 
     int min = 0; //Nur Ziffern von 0-9 sollen jeweils als Wert im Vector solution landen                                       
     int max = 9;
@@ -25,7 +23,7 @@ int main(int argc, char** argv)
         cin>>ziffer;
         solution.push_back(ziffer);
     }
-    if (obj.isValidInput(solution, len, min, max) == 0)
+    if (mind.isValidInput(solution, len, min, max) == 0)
     {
         cout << "Der eingegebene Code ist leider nicht zulässig." << endl;
         return 0;
@@ -45,7 +43,6 @@ int main(int argc, char** argv)
     cout << "___________________________________________________________________________" << endl;
     cout << "___________________________________________________________________________" << endl;
 
-
     for (int i = 0; i < 9; i++)
     {
         versuche = versuche - 1;
@@ -58,25 +55,25 @@ int main(int argc, char** argv)
             cin>>ziffer;
             guess.push_back(ziffer);
         }
-        if (obj.isValidInput(guess, len, min, max) == 0)
+        if (mind.isValidInput(guess, len, min, max) == 0)
         {
             cout << "Der eingegebene Code ist leider nicht zulässig." << endl;
-            versuche = versuche + 1;
+            versuche = versuche + 1; //Unzulässige Codes sollen keinen Versuch abziehen
         }
-        if (obj.isValidInput(guess, len, min, max) == 1)
+        if (mind.isValidInput(guess, len, min, max) == 1) //Wieviele Zahlen schwarz bzw. weiß sind, sollen nur angezeigt werden wenn die Eingabe zulässig ist
         {
-            cout << "Anzahl an schwarzen Zahlen: " << obj.black(solution, guess) << endl;
-            cout << "Anzahl an weißen Zahlen: " << obj.white(solution, guess) << endl;
+            cout << "Anzahl an schwarzen Zahlen: " << mind.black(solution, guess) << endl;
+            cout << "Anzahl an weißen Zahlen: " << mind.white(solution, guess) << endl;
             cout << "Du hast noch " << versuche << " Versuche übrig." << endl;
         }
 
-        if (obj.black(solution, guess) == 4)
+        if (mind.black(solution, guess) == 4) //Wenn alle Zahlen richtig sind kann das Programm frühzeitig beendet werden
         {
             cout << "Glückwunsch du hast den Code erraten!" << endl;
             return 0;
         }
 
-        if (versuche == 0)
+        if (versuche == 0) //Wenn keine Versuche mehr übrig sind, soll das Programm sich beenden
         {
             cout << "Schade, du hast alle Versuche verbraucht!" << endl;
             return 0;
