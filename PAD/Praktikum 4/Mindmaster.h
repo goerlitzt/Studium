@@ -2,6 +2,10 @@
 #define MINDMASTER_
 
 
+#ifndef MINDMASTER_H
+#define MINDMASTER_
+
+
 using namespace std;
 
 template <typename T>
@@ -10,8 +14,6 @@ class Mindmaster
 {
 public:
     Mindmaster();
-            
-//    ~Mindmaster();
     
     Mindmaster(const Mindmaster& orig);
 //WIESO MUSS DAS RAUS    
@@ -64,8 +66,6 @@ T Mindmaster<T>::black(const vector<T>& solution, const vector<T>& guess)
     return zaehler; //zaehler zurückgeben
 }
 
-
-
 template<typename T>
 T Mindmaster<T>::isValidInput(const vector<T>& guess, int length, T min, T max)
 {
@@ -90,14 +90,10 @@ if (guess.size() == length) //Überprüfen ob guess die richtige Anzahl an Zahle
         return false; //Ansonsten false da irgendwo die Regel nicht eingehalten wurde
     }
     return false; //Falls die Anzahl an Zahlen nicht mit der Länge übereinstimmt -> false zurückgeben
-    
-    
 }
 template<typename T>
 Mindmaster<T>::Mindmaster(){
-        
-    };
+        };
     
-    
-
 #endif /* MINDMASTER_H */
+
