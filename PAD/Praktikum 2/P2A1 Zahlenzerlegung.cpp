@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <math.h>
- 
+ //HALLO KLEINER TEST
 using namespace std;
  
 int stellenausrechnen(int t1)
